@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: applrodrif
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: applrodrif
+  template:
+    metadata:
+      labels:
+        app: applrodrif
+    spec:
+      containers:
+      - name: applrodrif
+        image: lrodrif234/examdocker:0.9
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
